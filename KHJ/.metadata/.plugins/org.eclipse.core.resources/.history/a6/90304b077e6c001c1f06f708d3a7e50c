@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+#footer{
+    background-color: #555;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.footerIn{
+    width: 1300px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.f_logo{
+    width: 140px;
+    height: 35px;
+    background-image: url(img/footer-logo.png);
+    background-size: 140px auto;
+    text-indent: -99999px;
+    margin-right: 80px;
+    margin-left: 20px;
+}
+.f_box{
+    margin-right: 100px;
+}
+
+.f_menu{
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.f_menu ul{
+    display: flex;
+}
+
+.f_menu li{
+    margin-right: 5px;
+}
+
+.f_menu li a{
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #ddd;
+    padding: 3px 15px;
+    font-size: 15px;
+}
+
+.f_info{
+    margin-bottom: 20px;
+    color: #ddd;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.f_info span{
+    margin-right: 13px;
+}
+
+.copyright{
+    color: #ddd;
+    font-weight: 300;
+}
+
+.f_sns{
+    margin-top: 40px;
+}
+
+.f_sns ul{
+    display: flex;
+}
+
+.f_sns li{
+    margin-right: 10px;
+}
+
+.f_sns a{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    text-indent: -99999px;
+
+}
+
+.f_sns .fb a{
+    background-image: url(img/sns_facebook.png);
+}
+
+.f_sns .ins a{
+    background-image: url(img/sns_insta.png);
+}
+
+.f_sns .yt a{
+    background-image: url(img/sns_youtube.png);
+}

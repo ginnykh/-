@@ -1,0 +1,5 @@
+package org.khj.dbtest;
+
+public class DataSourceTests {
+
+}

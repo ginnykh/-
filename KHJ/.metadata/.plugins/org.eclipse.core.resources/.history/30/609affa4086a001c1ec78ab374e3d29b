@@ -1,0 +1,6 @@
+package org.khj.controller;
+
+@Controller
+public class SampleController {
+
+}

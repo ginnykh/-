@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+E:\Spring Framework\KHJ\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+814695433.index
+870679612.index
+1645696763.index
+1236052199.index
+1184877093.index
+924006077.index
+88303874.index

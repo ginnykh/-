@@ -1,0 +1,23 @@
+package org.khj.dbtest;
+
+import static org.junit.Assert.fail;
+
+import java.sql.Connection;
+
+import javax.sql.DataSource;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class DataSourceTests {
+	@Autowired
+	private DataSource dataSource;
+	@Test
+	public void testConnection() {
+		try(Connection con = dataSource.getConnection()){
+			
+		}catch(Exception e) {
+			fail(e.getMessage());
+		}
+	}
+}

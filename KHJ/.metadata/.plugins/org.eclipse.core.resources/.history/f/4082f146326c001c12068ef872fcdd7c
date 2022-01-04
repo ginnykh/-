@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<% System.out.println("abcd"); %> 
+</head>
+<body>
+index.jsp파일입니다.
+<a href="서버주소?쿼리"></a>
+<form action="서버주소">
+	id : <input type = "text">
+	pw : <input type = "password">
+	name : <input type = "text">
+</form>
+</body>
+</html>

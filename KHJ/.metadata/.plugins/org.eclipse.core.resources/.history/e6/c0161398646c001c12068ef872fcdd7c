@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="container">
+            <div id="loginBox">
+                <form action="" id="login">
+                    <div id="box">
+                        <div id="id">
+                            <p class="subTxt1">
+                                id
+                                <a href="">아이디를 잊으셨나요?</a>
+                            </p>
+                            <p>
+                                <input type="text" id="inputBox">
+                                <input type="checkbox" id="idCheck">
+                                <span>id 저장</span>
+                            </p>
+                            
+                        </div>
+                        <div id="password" >
+                            <p class="subTxt2">
+                                Password
+                            </p>
+                            <p>
+                                <input type="password" id="inputBox">
+                            </p>
+                        </div>
+                    </div>
+                    <button class="btnLogin" type="submit">LOGIN</button>
+                </form>
+            </div>
+            
+        </div> <!--#container-->
+</body>
+</html>
