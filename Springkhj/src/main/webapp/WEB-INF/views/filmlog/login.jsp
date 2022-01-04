@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="/resources/css/filmlog/login.css">   
 </head>
 <body>
+<div id = "wrap">
+<%@ include file="header.jsp" %>
 <div id="container">
             <div id="loginBox">
                 <form action="" id="login">
@@ -45,5 +47,7 @@
             </div>
             
         </div> <!--#container-->
+        <%@ include file="footer.jsp" %>
+        </div>
 </body>
 </html>

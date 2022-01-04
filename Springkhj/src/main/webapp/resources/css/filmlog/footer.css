@@ -15,12 +15,13 @@
 .f_logo{
     width: 140px;
     height: 35px;
-    background-image: url(/resources/img/filmlog/footer-logo.png);
+    background-image: url(/resources/css/img/filmlog/footer-logo.png);
     background-size: 140px auto;
     text-indent: -99999px;
     margin-right: 80px;
     margin-left: 20px;
 }
+
 .f_box{
     margin-right: 100px;
 }
@@ -83,13 +84,13 @@
 }
 
 .f_sns .fb a{
-    background-image: url(/resources/img/filmlog/sns_facebook.png);
+    background-image: url(/resources/css/img/filmlog/sns_facebook.png);
 }
 
 .f_sns .ins a{
-    background-image: url(/resources/img/filmlog/sns_insta.png);
+    background-image: url(/resources/css/img/filmlog/sns_insta.png);
 }
 
 .f_sns .yt a{
-    background-image: url(/resources/img/filmlog/sns_youtube.png);
+    background-image: url(/resources/css/img/filmlog/sns_youtube.png);
 }

@@ -10,34 +10,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class filmlogController {
 	private static final Logger logger = LoggerFactory.getLogger(filmlogController.class);
 	@RequestMapping(value = "filmlog/boardIndex", method = RequestMethod.GET)
-	public String boardIndex() {
-		return "boardIndex";
+	public void boardIndex() {
 	}
 	
 	@RequestMapping(value = "filmlog/boardList", method = RequestMethod.GET)
-	public String boardList() {
-		return "boardList";
+	public void boardList() {
 	}
 	
 	@RequestMapping(value = "filmlog/login", method = RequestMethod.GET)
-	public String login() {
-		return "login";
+	public void login() {
 	}
 	
 	@RequestMapping(value = "filmlog/memberIndex", method = RequestMethod.GET)
-	public String memberIndex() {
-		return "memberIndex";
+	public void memberIndex() {
 	}
 	
 	@RequestMapping(value = "filmlog/writeIndex", method = RequestMethod.GET)
-	public String writeIndex() {
-		return "writeIndex";
+	public void writeIndex() {
 	}
 	
-	@RequestMapping(value = "filmlog/footer", method = RequestMethod.GET)
-	public String footer() {
-		return "footer";
-	}
-	
+//	@RequestMapping(value = "filmlog/footer", method = RequestMethod.GET)
+//	public void footer() {
+//	}
+//	
+//	@RequestMapping(value = "filmlog/header", method = RequestMethod.GET)
+//	public void header() {
+//	}
 	
 }

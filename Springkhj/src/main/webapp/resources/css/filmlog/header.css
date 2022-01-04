@@ -43,7 +43,7 @@ a{
     display: block;
     width: 90px;
     height: 100px;
-    background-image: url(/resources/img/filmlog/logo.png);
+    background-image: url(/resources/css/img/filmlog/logo.png);
     background-size: 90px auto;
     text-indent: -99999px;
 }
@@ -83,7 +83,7 @@ a{
     display: block;
     width: 20px;
     height: 20px;
-    background-image: url(/resources/img/filmlog/icon_search.png);
+    background-image: url(/resources/css/img/filmlog/icon_search.png);
     text-indent: -99999px;
 }
 
@@ -100,6 +100,6 @@ a{
     margin-left: -650px;
     width: 1300px;
     height: 330px;
-    background-image: url(/resources/img/filmlog/slide.PNG);
+    background-image: url(/resources/css/img/filmlog/slide.PNG);
     text-indent: -999999px;
 }

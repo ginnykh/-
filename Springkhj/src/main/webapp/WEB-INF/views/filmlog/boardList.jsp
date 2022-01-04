@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="/resources/css/filmlog/boardList.css">   
 </head>
 <body>
+<div id = "wrap">
+<%@ include file="header.jsp" %>
 <div id="container">
             <section class="slide">
                 <div class="slide-img">
@@ -130,6 +132,7 @@
                 </div>
             </section>
         </div> <!--#container-->
+<%@ include file="footer.jsp" %>
+</div>
 </body>
 </html>
-<%@ include file="footer.jsp" %>

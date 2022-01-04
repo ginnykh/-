@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/resources/css/filmlog/footer.css">    
 </head>
 <body>
+<div id "wrap">
         <footer id="footer">
             <div class="footerIn">
                 <p class="f_logo">필름로그</p>
@@ -51,5 +52,6 @@
                 </div>
             </div> <!--.footerIn-->
         </footer> <!--.footer-->
+</div>
 </body>
 </html>

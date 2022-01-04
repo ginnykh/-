@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/resources/css/filmlog/header.css">   
 </head>
 <body>
+<div id"wrap">
         <header id="header">
             <div class="headerIn">
                 <h1 class="logo">
@@ -36,5 +37,6 @@
                 </div>
             </div> <!--.headerIn-->
         </header> <!--#header-->
+        </div>
 </body>
 </html>
