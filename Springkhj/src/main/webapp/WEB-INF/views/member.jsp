@@ -9,5 +9,8 @@
 <body>
 <%@ include file="header.jsp" %>
 회원가입
+${id}
+${pw}
+${name}
 </body>
 </html>

@@ -4,43 +4,77 @@ import org.khj.domain.SampleMemberDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping("sample")
 public class SampleController {
 	private static final Logger logger = LoggerFactory.getLogger(SampleController.class);
 	
-	@RequestMapping(value = "sample", method = RequestMethod.GET) // GETÀº ¼Óµµ´Â ºü¸£Áö¸¸ º¸¾ÈÀÌ ÁÁÁö¾ÊÀ½, url¿¡ ´Ù ³ëÃâ <-> POST
-	public void basic() {
-		logger.info("sample ½ÇÇàµÊ.");
+	// @RequestMapping(value = "sample", method = RequestMethod.GET) // GETï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, urlï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ <-> POST
+	@GetMapping("") // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	public void basic(Model model) {
+		logger.info("sample ï¿½ï¿½ï¿½ï¿½ï¿½.");
+		// aaaaë¬¸ìì—´ì„ abcdë³€ìˆ˜ì— ì €ì¥í•˜ì—¬ sample.jspì— ë³´ë‚´ê¸°
+		model.addAttribute("abcd", "aaaa");
 		
 	}
-	@RequestMapping(value = "sample/ex01", method = RequestMethod.GET) // GETÀº ¼Óµµ´Â ºü¸£Áö¸¸ º¸¾ÈÀÌ ÁÁÁö¾ÊÀ½, url¿¡ ´Ù ³ëÃâ <-> POST
-	public String basic1() {
-		logger.info("sample/ex01 ½ÇÇàµÊ.");
+	// @RequestMapping(value = "sample/ex01", method = RequestMethod.GET) // GETï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, urlï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ <-> POST
+	@GetMapping("ex01")
+	public String basic1(Model model) {
+		logger.info("sample/ex01 ï¿½ï¿½ï¿½ï¿½ï¿½.");
+		
+		// bbbbë¬¸ìì—´ì„ zzzzë³€ìˆ˜ì— ì €ì¥í•˜ì—¬ sample.jspì— ë³´ë‚´ê¸°
+		model.addAttribute("zzzz", "bbbb");
 		return "ex01";
 		
 	}
 	
-	@RequestMapping(value = "sample/index", method = RequestMethod.GET) // value°ª °ãÄ¡¸ç ¾È µÊ
-	public String index() {
-		 return "index"; // returnÅ¸ÀÔÀ» ¾²Áö ¾ÊÀ»¶§´Â view¿¡ sample Æú´õ¸¦ ¸¸µé¾î¼­ index¸¦ ³Ö¾îÁà¾ß ÇÔ
+	// @RequestMapping(value = "sample/index", method = RequestMethod.GET) // valueï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	@GetMapping("index")
+	public String index(Model mod) { // model ë³€ìˆ˜ ì´ë¦„ì€ ë‚´ ë§˜ëŒ€ë¡œ ì¤˜ë„ ã„±ã…Š
+		// ccccë¬¸ìì—´ì„ yyyyë³€ìˆ˜ì— ì €ì¥í•˜ì—¬ sample.jspì— ë³´ë‚´ê¸°
+		mod.addAttribute("yyyy", "cccc");
+		 return "index"; // returnÅ¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ viewï¿½ï¿½ sample ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½î¼­ indexï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	}
 	
-	@RequestMapping(value = "sample/member", method = RequestMethod.GET)
-	public String member(String id, String pw, String name) {
+	// @RequestMapping(value = "sample/member", method = RequestMethod.GET)
+	@GetMapping("member")
+	public String member(String id, String pw, String name, Model model) {
 		System.out.println("id = " + id);
+		model.addAttribute("id", id);
 		System.out.println("pw = " + pw);
+		model.addAttribute("pw", pw);
 		System.out.println("name = " + name);
+		model.addAttribute("name", name);
+		
+		// idê°’ì„ idë³€ìˆ˜ì— ì €ì¥í•˜ì—¬ member.jspì— ë³´ë‚´ê¸°
+		// pwê°’ì„ pwë³€ìˆ˜ì— ì €ì¥í•˜ì—¬ member.jspì— ë³´ë‚´ê¸°
+		// nameê°’ì„ nameë³€ìˆ˜ì— ì €ì¥í•˜ì—¬ member.jspì— ë³´ë‚´ê¸°
+	
+		
 		return "member";
 	}
 	
-	@RequestMapping(value ="sample/memberDTO", method = RequestMethod.GET)
-	public void memberdto(SampleMemberDTO smd) {
+	// @RequestMapping(value ="sample/memberDTO", method = RequestMethod.POST)
+	@PostMapping("memberDTO")
+	public String memberdto(SampleMemberDTO smd, Model model) {
 		System.out.println("id = " + smd.getId());
 		System.out.println("pw = " + smd.getPw());
 		System.out.println("name = " + smd.getName());
+		model.addAttribute("id", smd);
+		model.addAttribute("pw", smd);
+		model.addAttribute("name", smd);
+		
+		return "memberDTO";
+//		return "redirect:/"; // ë„˜ê¸°ë ¤ê³  í•˜ëŠ” Controllerì˜ valueê°’ìœ¼ë¡œ ë„£ì–´ì£¼ê¸°
+//		return "redirect:/sample/member"; // ê°™ì€ Controllerë‚´ì—ì„œë„ ê°€ëŠ¥
+		
+		// SampleMemberDTOê°’ì„ idë³€ìˆ˜ì— ì €ì¥í•˜ì—¬ index.jspì— ë³´ë‚´ê¸° ( postë°©ì‹ì„ getìœ¼ë¡œ ë°”ê¾¸ê±°ë‚˜ ê·¸ ë°˜ëŒ€, ê·¼ë° getì€ ë³´ì•ˆì„±ì´ ë–¨ì–´ì ¸ì„œ postë¡œ í• ê²ƒ )
+		
 	}
 	
 }

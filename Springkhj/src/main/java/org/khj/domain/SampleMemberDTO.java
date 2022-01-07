@@ -1,7 +1,7 @@
 package org.khj.domain;
 
 public class SampleMemberDTO {
-	private String id;
+	private String id; // set에 의해서 index.jsp에 있는 id, pw, name으로 값이 감
 	private String pw;
 	private String name;
 	
