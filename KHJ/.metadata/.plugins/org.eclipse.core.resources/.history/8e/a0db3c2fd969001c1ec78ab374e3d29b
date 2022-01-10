@@ -1,5 +1,0 @@
-package org.khj.mapper;
-
-public interface TimeMapper {
-
-}
