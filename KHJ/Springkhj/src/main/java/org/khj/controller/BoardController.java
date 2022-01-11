@@ -33,10 +33,11 @@ public class BoardController {
 	}
 	// 게시판 목록 리스트
 	@GetMapping("list")
-	public void list(Criteria cri, Model model) {
+	public void list(Criteria cri, Model model) { // pageNum이랑 amount가 Criteria에 저장
 		System.out.println("board/list");
-		model.addAttribute("list", service.list(cri));		
-		model.addAttribute("pageMaker",new PageDTO(cri, 60));
+		model.addAttribute("list", service.list(cri));	
+		int total = service.getTotalCount(cri); // 바로 넣어도 상관없음
+		model.addAttribute("pageMaker",new PageDTO(cri, total));
 	}
 	// 게시판 목록 리스트에서 제목을 클릭하면....
 	@GetMapping("detail")

@@ -21,4 +21,5 @@
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 <fullyQualifiedTypeName name="org.khj.domain.Criteria"/>
 <fullyQualifiedTypeName name="org.khj.mapper.BoardMapper"/>
+<fullyQualifiedTypeName name="org.khj.domain.PageDTO"/>
 </qualifiedTypeNameHistroy>

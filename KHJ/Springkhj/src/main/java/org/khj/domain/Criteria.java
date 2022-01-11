@@ -51,13 +51,14 @@ public class Criteria {
 		this.keyword = keyword;
 	}
 	
+	
 	@Override
 	public String toString() {
 		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", search=" + search + ", keyword=" + keyword
-				+ ", getPageNum()=" + getPageNum() + ", getAmount()=" + getAmount() + ", getSearch()=" + getSearch()
-				+ ", getKeyword()=" + getKeyword() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ "]";
 	}
+	
+	
 	
 	
 }

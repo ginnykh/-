@@ -19,7 +19,7 @@ public class PageDTO {
 		this.total = total;
 		// (int)(Math.ceil(현재 페이지 번호 / 10.0))*10 계산된 결과를 endPage에 저장 (전체 건수를 고려하지 않음) , ceil은 올림함수
 		this.endPage = (int)(Math.ceil(cri.getPageNum()/10.0))*10;
-		System.out.println("cri.getPageNum() = " + );
+		System.out.println("cri.getPageNum() = ");
 		System.out.println("endPage = "+endPage);
 		// 10 - 9 = 1, 20 - 9 = 11....
 		this.startPage = this.endPage - 9; // endPage에 this없어도 괜찮음, 대신에 매개변수에 endPage가 들어간다면 this 써줘야 함
@@ -73,16 +73,12 @@ public class PageDTO {
 	public void setCri(Criteria cri) {
 		this.cri = cri;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
 		return "PageDTO [startPage=" + startPage + ", endPage=" + endPage + ", prev=" + prev + ", next=" + next
-				+ ", total=" + total + ", cri=" + cri + ", getStartPage()=" + getStartPage() + ", getEndPage()="
-				+ getEndPage() + ", isPrev()=" + isPrev() + ", isNext()=" + isNext() + ", getTotal()=" + getTotal()
-				+ ", getCri()=" + getCri() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
-	}
-	
+				+ ", total=" + total + ", cri=" + cri + "]";
+	} 
 	
 }

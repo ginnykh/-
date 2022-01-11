@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="../resources/css/sb-admin-2.css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
+    <script type = "text/javascript" src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type = "text/javascript" src = "../resources/js/list.js"></script>
 </head>
 <body>
 	<h1>게시판 목록 리스트</h1>
@@ -38,8 +40,10 @@
                    </c:forEach>
                </tbody>
            </table>
-           <form action = "" method = "get">
+           <form id = "actionForm" action = "/board/list" method = "get">
            <div class = "form-control bg-light border-0 small">
+           			<input type = "text" value = "${pageMaker.cri.pageNum }" name = "pageNum">
+           			<input type = "text" value = "${pageMaker.cri.amount }" name = "amount">
 	                   <select name = "search">
 	                   		<option value = "T">제목</option>
 	                   		<option value = "C">내용</option>
@@ -47,20 +51,32 @@
 	                   		<option value = "TC">제목 + 내용</option>
 	                   		<option value = "TCW">제목 + 내용 + 작성자</option>
 	                   </select>
-	                   <input type = "text" name = "keyword">
+	                   <input type = "text" name = "keyword" value = "${pageMaker.cri.keyword }">
 	                   <input type = "submit" value = "검색">
            </div>
-           <div>
-           	<c:forEach var = "num" begin = "${pageMaker.startPage}" end = "${pageMaker.endPage}">
-           		<ul>
-           			<li>${num}</li>
-           			
-      
-           		</ul>
-           	</c:forEach>
-           </div>
            </form>
+           </div>
+           <div class = ""> <!--  클래스 이름 -->
+           	<ul class = "pagination">
+           	<c:if test = "${pageMaker.prev}">
+           	<li class = "paginate_button page-item previous" id = "dataTable_previous">
+           		<a class = "page-link" href = "${pageMaker.startPage-1}">이전</a>
+           	</li>
+           	</c:if>
+	           	<c:forEach var = "num" begin = "${pageMaker.startPage}" end = "${pageMaker.endPage}">
+	           		
+	           			<li class ="paginate_button page-item">
+	           			<a href = "${num}" class = "page-link">${num}</a>
+	           			</li>
+           		
+           		</c:forEach>
+           		<c:if test = "${pageMaker.next}">
+           		<li class = "paginate_button page-item next" id = "dataTable_next">
+           		<a class = "page-link" href = "${pageMaker.endPage+1}">다음</a>
+           		</li>
+           		</c:if>
+           	</ul>
+           </div>
        </div>
-	</div>
 </body>
 </html>
