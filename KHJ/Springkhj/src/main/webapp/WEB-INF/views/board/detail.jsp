@@ -24,9 +24,7 @@
 </head>
 <body>
 	  <div class="form-group row">
-	    <div class="col-sm-12 mb-3 mb-sm-0" id="bno">
-	        ${detail.bno}
-	    </div>
+	    <div class="col-sm-12 mb-3 mb-sm-0" id="bno">${detail.bno}</div>
 		<div class="col-sm-12 mb-3 mb-sm-0">
 			${detail.title}
 		</div>
@@ -41,7 +39,16 @@
 <!-- Button trigger modal -->
 			<button id = "addReplyBtn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
 				댓글
-			</button>                    
+			</button>
+			
+			<div id = "relist"></div>
+			
+			
+			
+			
+			
+			
+			                    
 		</div>
 		
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

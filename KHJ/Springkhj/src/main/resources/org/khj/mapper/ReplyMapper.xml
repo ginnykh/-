@@ -8,4 +8,11 @@
 		values (#{bno},#{reply},#{replyer})
 	</insert>
 	
+	<select id= "list" resultType = "org.khj.domain.ReplyDTO">
+		select * from reply where bno =#{bno}
+	</select>
+	
+	<select id="detail" resultType = "org.khj.domain.ReplyDTO">
+		select * from reply where rno =#{rno}
+	</select>
 </mapper>
