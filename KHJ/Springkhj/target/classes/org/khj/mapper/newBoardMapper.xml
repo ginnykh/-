@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.khj.mapper.newBoardMapper">
+
+	<insert id = "write">
+		insert into newBoard(title, content, writer)
+		values(#{title},#{content},#{writer})
+	</insert>
+	
+	<select id = "list" resultType = "org.khj.domain.newBoardDTO">
+		select *
+		from(
+			select @rownum:=@rownum+1 as rownum, b.*
+			from (select @rownum:=0) as tmp, 
+			board as b
+			<choose>
+			    <when test="search == 'T'.toString()">
+			      where title like concat('%',#{keyword},'%')
+			    </when>
+			    <when test="search == 'C'.toString()">
+			      where content like concat('%',#{keyword},'%')
+			    </when>
+			    <when test="search == 'W'.toString()">
+			      where writer like concat('%',#{keyword},'%')
+			    </when>
+			    <when test="search == 'TC'.toString()">
+			      where title like concat('%',#{keyword},'%')
+			      or content like concat('%',#{keyword},'%')
+			    </when>
+			    <otherwise>
+			      where title like concat('%',#{keyword},'%')
+			      or content like concat('%',#{keyword},'%')
+			      or writer like concat('%',#{keyword},'%')
+			    </otherwise>
+		  	</choose>
+		) as boardList	
+	
+  	<![CDATA[
+  			where rownum > (#{pageNum}-1)*#{amount} 
+  			and rownum <= #{pageNum}*#{amount}
+  	]]>		
+	</select>
+	
+</mapper>

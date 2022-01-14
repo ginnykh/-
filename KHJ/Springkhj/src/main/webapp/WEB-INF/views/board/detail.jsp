@@ -41,7 +41,9 @@
 				댓글
 			</button>
 			
-			<div id = "relist"></div>
+			<div>
+				<ul id = "relist"></ul>
+			</div>
 			
 			
 			
@@ -59,6 +61,10 @@
                                         </div>
                                         <div class="modal-body">
                                             <div>
+                                            <label>Rno</label>
+                                            <input type = "text" name = "rno">
+                                            </div>
+                                            <div>
                                             <label>Replyer</label>
                                             <input type = "text" name = "replyer">
                                             </div>
@@ -69,8 +75,8 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" id = "modalRegisterBtn" class="btn btn-primary">댓글 쓰기</button>
-                                            <button type="button" class="btn btn-primary">댓글 수정</button>
-                                            <button type="button" class="btn btn-primary">댓글 삭제</button>
+                                            <button type="button" class="btn btn-primary" id = "modalModBtn">댓글 수정</button>
+                                            <button type="button" class="btn btn-primary" id = "modalRemoveBtn">댓글 삭제</button>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                         </div>
                                     </div>

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("board")
 public class BoardController {
 	@Autowired
-	// priva  te BoardService service = new BoardService();
+	// private BoardService service = new BoardService();
 	private BoardService service;
 	// 글쓰기 화면으로....
 	@GetMapping("write")
