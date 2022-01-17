@@ -22,6 +22,8 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="org.khj.controller" />
+	<beans:bean id = "multipartResover" class = "org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</beans:bean>
 	
 	
 	
