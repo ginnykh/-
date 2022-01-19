@@ -24,7 +24,7 @@
               </div>
             </section>
             <div class="write">
-              <form action="#" method="post" id="target">
+              <form action="/filmlog/write" method="post" id="target">
                 <legend>글쓰기</legend>
                   <table>
                     <tr>

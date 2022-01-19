@@ -21,7 +21,7 @@ public class BoardController {
 	// 글쓰기 화면으로....
 	@GetMapping("write")
 	public void write() {
-		System.out.println("board/write");
+	// System.out.println("board/write");
 	}
 	// 글쓰기 버튼을 클릭하면...
 	@PostMapping("write")

@@ -21,16 +21,47 @@ $(document).ready(function(){
 		return true;
 	}
 	
-	$("input[type='submit']").on("click", function(){
-		// 가사의 Form태그
+	var formObj = $("form[role='form']")
+	// 글쓰기 버튼을 클릭하면
+	$("input[type='submit']").on("click", function(e){
+		e.preventDefault();
+		
+		var str="";
+		
+		// li 태그에 있는
+		$("#uploadResult ul li").each(function(i,obj){
+			console.log(obj);
+			// data 선택자를 이용하여 input태그의 value값으로 셋팅
+			/*
+			 * data함수
+			 * <span>
+			 * $("span").data("age",13) => <span data-age = "13"> data함수 괄호안에 매개변수가 두개면 setter
+			 * <span data-age = "13">
+			 * $("span").data("age") => data함수 괄호안에 매개변수가 하나면 getter
+			 * 
+			 * */
+			str += "<input type = 'text' name = 'attachList["+i+"].fileName' value = '" + $(obj).data("filename") + "'>"
+			str += "<input type = 'text' name = 'attachList["+i+"].uuid' value = '" + $(obj).data("uuid") + "'>"
+			str += "<input type = 'text' name = 'attachList["+i+"].uploadPath' value = '" + $(obj).data("path") + "'>"
+			str += "<input type = 'text' name = 'attachList["+i+"].image' value = '" + $(obj).data("type") + "'>"
+		})
+		formObj.append(str);
+	
+		
+	})
+	
+	// 파일 선택의 내용이 변경되면
+	$("input[type = 'file']").on("change",function(e){
+		
+		// 가상의 Form태그
 		var formData = new FormData();
 		var inputFile = $("input[name='uploadFile']");
 		var files = inputFile[0].files;
-		
 		console.log(files);
+		
 		for(var i = 0; i < files.length; i++){
 			// 파일의 크기가 이상이면
-			if(!checkExtension(files[i].size,files[i].name)){
+			if(!checkExtension(files[i].size)){
 				// 밑에 있는것 실행 금지
 				return false;
 			}
@@ -43,16 +74,40 @@ $(document).ready(function(){
 		// processData와 contentType은 반드시 false여야 함.
 		
 		$.ajax({
-			url : "uploadAjaxAction",
+			url : "/uploadAjaxAction",
 			type : "post",
 			data : formData,
 			processData : false, 
 			contentType : false,
-			success : function(result){
-				alert("upload 성공")	
+			success : function(result){ // 사용자가 선택한 파일을 원하는 경로에 성공적으로 업로드 한 후
+				// showUploadedFile함수 호출
+				showUploadedFile(result);
 			}
-		})
-			
-	})
+		}) // $.ajax 끝
 		
-})
+	}) 
+		
+}) // $(document).ready(function(){ 끝
+
+// "사용자가 선택한 파일을 원하는 경로에 성공적으로 업로드 한 후 웹브라우저에 파일을 띄워라"에 대한 함수 선언 ( showUploadFile )
+function showUploadedFile(uploadResultArr){
+	var str = "";
+	$(uploadResultArr).each(function(i,obj){
+		console.log(obj);
+		if(!obj.image) { // 사용자가 업로드한 파일의 타입이 이미지가 아니면(excel 문서 파일, ppt파일),
+			var fileCallPath = encodeURIComponent(obj.uploadPath + "/" + obj.uuid + "_" + obj.fileName)
+			str += "<li data-path='" + obj.uploadPath + "'";
+			str += "data-uuid='" + obj.uuid + "'data-filename = '" + obj.fileName + "'data-type='" + obj.image + "'>";
+			str += "<a href = 'download?fileName=" + fileCallPath + "'>" + obj.fileName + "</a></li>"
+		}else { // 사용자가 업르도한 파일의 타입이 이미지이면(.jpg, .png, .gif),
+			var fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName)
+			// console.log(fileCallPath);
+			// img 태그를 사용해서 웹브라우저 이미지 출력
+			str += "<li data-path='" + obj.uploadPath + "'";
+			str += "data-uuid='" + obj.uuid + "'data-filename = '" + obj.fileName + "'data-type='" + obj.image + "'>";
+			str += "<img src = '/display?fileName=" + fileCallPath + "'></li>"
+		}
+		
+	})
+	$("#uploadResult ul").html(str)
+}
