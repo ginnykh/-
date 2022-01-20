@@ -1,13 +1,20 @@
 package org.khj.controller;
 
+import java.util.ArrayList;
+
+import org.khj.domain.AttachFileDTO;
 import org.khj.domain.BoardDTO;
 import org.khj.domain.Criteria;
 import org.khj.domain.PageDTO;
 import org.khj.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -26,8 +33,8 @@ public class BoardController {
 	// 글쓰기 버튼을 클릭하면...
 	@PostMapping("write")
 	public String writePost(BoardDTO board) {
-		service.write(board);
 		System.out.println("write post....."+board);
+		service.write(board);
 		
 		return "redirect:/board/list";
 	}
@@ -44,6 +51,16 @@ public class BoardController {
 	public void detail(BoardDTO board,Model model) {
 		model.addAttribute("detail",service.detail(board));
 	}
+	
+	
+	// /board/fileList/210.json
+	// 게시판 상세페이지에서 이미지를 출력하기 위한 select된 결과를 javascript로
+	@GetMapping(value = "fileList/{bno}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<ArrayList<AttachFileDTO>> fileList(@PathVariable int bno){
+//		System.out.println("fileList");
+		return new ResponseEntity<>(service.fileList(bno),HttpStatus.OK);
+	}
+	
 	// 글수정 화면으로....
 	@GetMapping("modify")
 	public void modify(BoardDTO board,Model model) {

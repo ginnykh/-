@@ -40,12 +40,12 @@ $(document).ready(function(){
 			 * $("span").data("age") => data함수 괄호안에 매개변수가 하나면 getter
 			 * 
 			 * */
-			str += "<input type = 'text' name = 'attachList["+i+"].fileName' value = '" + $(obj).data("filename") + "'>"
-			str += "<input type = 'text' name = 'attachList["+i+"].uuid' value = '" + $(obj).data("uuid") + "'>"
-			str += "<input type = 'text' name = 'attachList["+i+"].uploadPath' value = '" + $(obj).data("path") + "'>"
-			str += "<input type = 'text' name = 'attachList["+i+"].image' value = '" + $(obj).data("type") + "'>"
+			str += "<input type = 'hidden' name = 'attachList["+i+"].fileName' value = '" + $(obj).data("filename") + "'>" // 이전에는 확인하기 위해 text를 사용했지만 사용자에게는 보여주지 않기 위해 hidden으로 변경
+			str += "<input type = 'hidden' name = 'attachList["+i+"].uuid' value = '" + $(obj).data("uuid") + "'>"
+			str += "<input type = 'hidden' name = 'attachList["+i+"].uploadPath' value = '" + $(obj).data("path") + "'>"
+			str += "<input type = 'hidden' name = 'attachList["+i+"].image' value = '" + $(obj).data("type") + "'>"
 		})
-		formObj.append(str);
+		formObj.append(str).submit(); // html은 덮어쓰기, append는 밑에 추가 / append함과 동시에 submit
 	
 		
 	})
@@ -98,7 +98,7 @@ function showUploadedFile(uploadResultArr){
 			var fileCallPath = encodeURIComponent(obj.uploadPath + "/" + obj.uuid + "_" + obj.fileName)
 			str += "<li data-path='" + obj.uploadPath + "'";
 			str += "data-uuid='" + obj.uuid + "'data-filename = '" + obj.fileName + "'data-type='" + obj.image + "'>";
-			str += "<a href = 'download?fileName=" + fileCallPath + "'>" + obj.fileName + "</a></li>"
+			str += "<a href = '/download?fileName=" + fileCallPath + "'>" + obj.fileName + "</a></li>"
 		}else { // 사용자가 업르도한 파일의 타입이 이미지이면(.jpg, .png, .gif),
 			var fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName)
 			// console.log(fileCallPath);

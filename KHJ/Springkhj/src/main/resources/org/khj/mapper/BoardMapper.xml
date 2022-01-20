@@ -7,6 +7,19 @@
 		insert into board(title,content,writer,regdate)
 		values(#{title},#{content},#{writer},now())
 	</insert>
+	
+	<!-- board테이블에 insert 하기 전에 bno값을 미리 만들어 놓고 insert를 해야함 -->
+	<insert id = "insertSelectKey">
+		<selectKey keyProperty = "bno" order = "BEFORE" resultType = "int">
+			select max(bno)+1 bno from board
+		</selectKey>
+		insert into board(bno,title,content,writer,regdate)
+		values(#{bno},#{title},#{content},#{writer},now())
+	</insert>
+	
+	
+	
+	
 	<select id="list" resultType="org.khj.domain.BoardDTO">
 		select *
 		from(
@@ -88,6 +101,6 @@
 	      or content like concat('%',#{keyword},'%')
 	      or writer like concat('%',#{keyword},'%')
 	    </otherwise>
-  	</choose>
-	</select>
+  		</choose>
+	  </select>
 </mapper>

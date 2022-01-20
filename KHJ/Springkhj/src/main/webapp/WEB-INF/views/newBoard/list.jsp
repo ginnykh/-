@@ -24,23 +24,21 @@
                        <th>작성자</th>
                        <th>작성일</th>
                        <th>조회수</th>
-                       <th>좋아요</th>
                    </tr>
                </thead>
                <tbody>
-               		<c:forEach items="${list}" var="board">
+               		<c:forEach items="${list}" var="newBoard">
 						<tr>
-						    <td>${board.bno}</td>
-						    <td><a href="/board/detail?bno=${board.bno}">${board.title}</a></td>
-						    <td>${board.writer}</td>
-						    <td>${board.regdate}</td>
-						    <td>${board.cnt}</td>
-						    <td>${board.good}</td>
+						    <td>${newBoard.bno}</td>
+						    <td><a href="/board/detail?bno=${newBoard.bno}">${newBoard.title}</a></td>
+						    <td>${newBoard.writer}</td>
+						    <td>${newBoard.regdate}</td>
+						    <td>${newBoard.cnt}</td>
 						</tr>
                    </c:forEach>
                </tbody>
            </table>
-           <form id = "actionForm" action = "/board/list" method = "get">
+           <form id = "actionForm" action = "/newBoard/list" method = "get">
            <div class = "form-control bg-light border-0 small">
            			<input type = "text" value = "${pageMaker.cri.pageNum }" name = "pageNum">
            			<input type = "text" value = "${pageMaker.cri.amount }" name = "amount">

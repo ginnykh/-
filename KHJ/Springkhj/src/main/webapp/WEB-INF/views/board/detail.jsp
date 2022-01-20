@@ -35,6 +35,12 @@
 			<a href="/board/modify?bno=${detail.bno}">수정</a>
 			<a href="/board/remove?bno=${detail.bno}">삭제</a>
 		</div>
+		
+		<div id = "uploadResult" class="col-sm-12 mb-3 mb-sm-0">
+			<ul></ul>
+		</div>
+		
+		
 		<div class="panel-body">
 <!-- Button trigger modal -->
 			<button id = "addReplyBtn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -43,14 +49,7 @@
 			
 			<div>
 				<ul id = "relist"></ul>
-			</div>
-			
-			
-			
-			
-			
-			
-			                    
+			</div>              
 		</div>
 		
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

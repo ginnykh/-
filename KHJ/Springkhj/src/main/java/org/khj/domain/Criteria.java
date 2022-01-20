@@ -19,12 +19,6 @@ public class Criteria {
 		this.amount = amount;
 	}
 	
-	
-	
-	
-	
-	
-	
 	public int getPageNum() {
 		return pageNum;
 	}

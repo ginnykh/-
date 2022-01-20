@@ -2,7 +2,9 @@ package org.khj.service;
 
 import java.util.ArrayList;
 
+import org.khj.domain.AttachFileDTO;
 import org.khj.domain.BoardDTO;
+import org.khj.mapper.AttachMapper;
 import org.khj.mapper.BoardMapper;
 import org.khj.domain.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +14,25 @@ import org.springframework.transaction.annotation.Transactional;
 public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private org.khj.mapper.BoardMapper bmapper;
+	@Autowired
+	private AttachMapper amapper;
+	
+	@Transactional
 	// 게시판 글쓰기 설계된것을 구현
 	public void write(BoardDTO board) {
-		bmapper.write(board);
+		// 제목과 내용을 board테이블에 insert
+		bmapper.insertSelectKey(board);
+		// 파일명, 파일경로, 파일타입, uuid값을 attach테이블에 insert
+// BoardDTO에 있는 AttachList를 가져와서 반복문으로 실행하여 attach변수에 저장
+		board.getAttachList().forEach(attach->{
+			// BoardDTO의 bno값을 가져와서 AttachFileDTO에 bno에 저장
+			attach.setBno(board.getBno());
+			amapper.insert(attach);
+		});
 	}
+	
+	
+	
 	// 게시판 목록리스트 설계된것을 구현
 	public ArrayList<BoardDTO> list(Criteria cri) {
 		return bmapper.list(cri);
@@ -39,5 +56,9 @@ public class BoardServiceImpl implements BoardService {
 	// 게시판 페이징에 쓰일 데이터건수
 	public int getTotalCount(Criteria cri) {
 		return bmapper.getTotalCount(cri);
+	}
+	public ArrayList<AttachFileDTO> fileList(int bno){
+		return amapper.fileList(bno);
+		
 	}
 }
