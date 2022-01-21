@@ -45,12 +45,13 @@
 <fullyQualifiedTypeName name="org.khj.domain.BoardDTO"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 <fullyQualifiedTypeName name="org.khj.service.FilmService"/>
-<fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
-<fullyQualifiedTypeName name="org.khj.domain.AttachFileDTO"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
 <fullyQualifiedTypeName name="org.springframework.util.FileCopyUtils"/>
 <fullyQualifiedTypeName name="org.springframework.core.io.Resource"/>
 <fullyQualifiedTypeName name="org.springframework.core.io.FileSystemResource"/>
+<fullyQualifiedTypeName name="org.khj.mapper.AttachMapper"/>
+<fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.khj.domain.AttachFileDTO"/>
 </qualifiedTypeNameHistroy>

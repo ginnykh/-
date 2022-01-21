@@ -1,43 +1,41 @@
 package org.khj.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.khj.domain.FilmDTO;
+import org.khj.domain.filmCriteria;
+import org.khj.service.filmlogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping("filmlog")
 public class filmlogController {
-	private static final Logger logger = LoggerFactory.getLogger(filmlogController.class);
-	@RequestMapping(value = "filmlog/boardIndex", method = RequestMethod.GET)
-	public String boardIndex() {
-		return "boardIndex";
+	
+	@Autowired
+	private filmlogService fservice;
+	
+	// 글쓰기 화면으로
+	@GetMapping("write")
+	public void write() {
+		System.out.println("write");
 	}
 	
-	@RequestMapping(value = "filmlog/boardList", method = RequestMethod.GET)
-	public String boardList() {
-		return "boardList";
+	// 글쓰기 버튼을 클릭하면 목록으로 가기
+	@PostMapping("write")
+	public String writePost(FilmDTO film) {
+		fservice.write(film);
+		return "redirect:/filmlog/boardlist";
 	}
 	
-	@RequestMapping(value = "filmlog/login", method = RequestMethod.GET)
-	public String login() {
-		return "login";
+	// 게시판 목록
+	@GetMapping("boardlist")
+	public void boardlist (filmCriteria fcri , Model model) {
+		model.addAttribute("boardlist",fservice.boardlist(fcri));
+		int total = fservice.getTotalCount(fcri);
+		model.addAttribute("pageMaker", new FilmDTO(fcri, total));
 	}
-	
-	@RequestMapping(value = "filmlog/memberIndex", method = RequestMethod.GET)
-	public String memberIndex() {
-		return "memberIndex";
-	}
-	
-	@RequestMapping(value = "filmlog/writeIndex", method = RequestMethod.GET)
-	public String writeIndex() {
-		return "writeIndex";
-	}
-	
-	@RequestMapping(value = "filmlog/footer", method = RequestMethod.GET)
-	public String footer() {
-		return "footer";
-	}
-	
 	
 }

@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/resources/css/filmlog/write.css">   
+<link rel="stylesheet" href="../resources/css/filmlog/write.css">   
 </head>
 <body>
 <div id="container">
@@ -28,10 +28,10 @@
                 <legend>글쓰기</legend>
                   <table>
                     <tr>
-                      <td><input type="text" placeholder="제목을 입력해주세요." class="title" id="tCount"></td>
+                      <td><input type="text" placeholder="제목을 입력해주세요." class="title" id="tCount" name = "title"></td>
                     </tr>
                     <tr>
-                      <td><textarea name="" id="text" cols="100" rows="15" placeholder="내용을 입력해주세요." class="text"></textarea></td>
+                      <td><textarea id="text" cols="100" rows="15" placeholder="내용을 입력해주세요." class="text" name = "content"></textarea></td>
                     </tr>
                   </table>
                   <p class="countTitle"><span id="countTi"></span>/100</p>
