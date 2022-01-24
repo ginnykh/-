@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ include file="header.jsp" %>
 
 <!DOCTYPE html>
@@ -13,6 +14,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/resources/css/filmlog/boardList.css">   
+<script type = "text/javascript" src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type = "text/javascript" src = "../resources/js/filmlogList.js"></script>
 </head>
 <body>
 <div id="container">
@@ -36,22 +39,22 @@
                     </tr>
 
                     <tbody>
-               		<c:forEach items="${list}" var="board">
+               		<c:forEach items="${boardlist}" var="filmlog_board">
 						<tr>
-						    <td>${board.bno}</td>
-						    <td><a href="/board/detail?bno=${board.bno}">${board.title}</a></td>
-						    <td>${board.writer}</td>
-						    <td>${board.regdate}</td>
-						    <td>${board.cnt}</td>
-						    <td>${board.good}</td>
+						    <td>${filmlog_board.bno}</td>
+						    <td><a href="/filmlog/detail?bno=${filmlog_board.bno}">${filmlog_board.title}</a></td>
+						    <td>${filmlog_board.writer}</td>
+						    <td>${filmlog_board.regdate}</td>
+						    <td>${filmlog_board.cnt}</td>
+						    <td>${filmlog_board.good}</td>
 						</tr>
                    </c:forEach>
                </tbody>
                </table>
-               <form id = "actionForm" action = "/board/list" method = "get">
-	           <div class = "form-control bg-light border-0 small">
-	           			<input type = "text" value = "${pageMaker.cri.pageNum }" name = "pageNum">
-	           			<input type = "text" value = "${pageMaker.cri.amount }" name = "amount">
+               <form id = "actionForm" action = "/filmlog/boardlist" method = "get">
+	           <div class = "board">
+	           			<input type = "text" value = "${pageMaker.fcri.pageNum }" name = "pageNum">
+	           			<input type = "text" value = "${pageMaker.fcri.amount }" name = "amount">
 		                   <select name = "search">
 		                   		<option value = "T">제목</option>
 		                   		<option value = "C">내용</option>
@@ -59,16 +62,11 @@
 		                   		<option value = "TC">제목 + 내용</option>
 		                   		<option value = "TCW">제목 + 내용 + 작성자</option>
 		                   </select>
-		                   <input type = "text" name = "keyword" value = "${pageMaker.cri.keyword }">
+		                   <input type = "text" name = "keyword" value = "${pageMaker.fcri.keyword }">
 		                   <input type = "submit" value = "검색">
 	           </div>
 	           </form>
-               <!-- <c:if test = "${login!=null}">
-                <div class="write">
-                    <a href="/filmlog/write">글쓰기</a>
-                </div>
-                </c:if> -->
-              	
+            
 
                 <div class="search">
                     <label><input type="radio" name="board" checked>제목</label>

@@ -2,8 +2,10 @@ package org.khj.service;
 
 import java.util.ArrayList;
 
+import org.khj.domain.BoardDTO;
 import org.khj.domain.FilmDTO;
 import org.khj.domain.filmCriteria;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface filmlogService {
 
@@ -13,5 +15,12 @@ public interface filmlogService {
 	public ArrayList<FilmDTO> boardlist(filmCriteria fcri);
 	// 게시판 페이징에 쓰일 데이터건수
 	public int getTotalCount(filmCriteria fcri);
-	
+	// 게시판 목록리스트에서 제목을 클릭했을 때 내용이 나오는 상세페이지
+	public FilmDTO detail(FilmDTO film);
+	// 게시판 수정페이지
+	public void modify(FilmDTO film);
+	// 게시판 삭제페이지
+	public void remove(FilmDTO film);
+
+		
 }
