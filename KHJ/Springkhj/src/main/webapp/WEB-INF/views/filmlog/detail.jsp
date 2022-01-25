@@ -53,13 +53,13 @@
                             <li>
                                 <a href="#">
                                     <span class="ba_l">이전글</span>
-                                    <span class="ba_r">뭐시기 뭐시기 뭐시기</span>
+                                    <span class="ba_r">제목</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <span class="ba_l">다음글</span>
-                                    <span class="ba_r">요시기 요시기 요시기</span>
+                                    <span class="ba_r">입니뎅</span>
                                 </a>
                             </li>
                         </ul>
