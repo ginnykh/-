@@ -13,6 +13,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/resources/css/filmlog/boardIndex.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/all.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/sb-admin-2.css">
+<link href="../resources/css/bootstrap.css" rel="stylesheet">
+<link href="../resources/css/metisMenu.css" rel="stylesheet">
+<link href="../resources/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<script type = "text/javascript" src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type = "text/javascript" src = "../resources/js/FilmReplydetail.js"></script>
+<script type = "text/javascript" src = "../resources/js/bootstrap.js"></script>
+<script type = "text/javascript" src = "../resources/js/sb-admin-2.js"></script>
+<script type = "text/javascript" src = "../resources/js/metisMenu.js"></script>
 </head>
 <body>
         <div id="container">
@@ -36,7 +47,8 @@
                                 <span>${detail.writer}</span>
                                 <span class="w_r">${detail.regdate}</span>
                                 <span class="w_rr">${detail.cnt}</span>
-                            </td>
+                                <input type="hidden" value="${detail.bno}" id="bno">
+                            </td> 
                         </tr>
                         <tr class="con">
                             <td>
@@ -66,6 +78,62 @@
                     </div>
                 </div>
             </div><!--containerIn-->
+            
+            
+            
+            
+            
+            
+            <div class="panel-body">
+<!-- Button trigger modal -->
+			<button id = "addReplyBtn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+				댓글
+			</button>
+			
+			<div>
+				<ul id = "relist"></ul>
+			</div>              
+			</div>
+            
+            
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="myModalLabel">댓글</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                            <label>Rno</label>
+                                            <input type = "text" name = "rno">
+                                            <input type = "text" name = "bno">
+                                            </div>
+                                            <div>
+                                            <label>Replyer</label>
+                                            <input type = "text" name = "replyer">
+                                            </div>
+                                            <div>
+                                            <label>Reply</label>
+                                            <input type = "text" name = "reply">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" id = "modalRegisterBtn" class="btn btn-primary">댓글 쓰기</button>
+                                            <button type="button" class="btn btn-primary" id = "modalModBtn">댓글 수정</button>
+                                            <button type="button" class="btn btn-primary" id = "modalRemoveBtn">댓글 삭제</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+		</div>
+            
+            
+            
+            
+            
+            
         </div> <!--#container-->
 </body>
 </html>

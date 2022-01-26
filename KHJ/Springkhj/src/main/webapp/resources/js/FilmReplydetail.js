@@ -2,12 +2,12 @@
  * 
  */
 
-var replyService = (function(){ // replyService 함수선언
+var FilmreplyService = (function(){ // FilmreplyService 함수선언
 	// 댓글쓰기(add)를 하기 위한 함수 선언
 	function add(reply, callback){
 		console.log("reply.......")
 		$.ajax({
-			url : "/replies/new",
+			url : "/Filmreplies/new",
 			type : "post",
 			data : JSON.stringify(reply), // JSON.stringify : 자바스크립트의 값을 JSON 문자열로 변환
 			contentType:"application/json;charset=utf-8",
@@ -30,7 +30,7 @@ var replyService = (function(){ // replyService 함수선언
 		var bno = param.bno;
 		console.log(bno);
 		$.getJSON(
-				"/replies/list/"+bno+".json",
+				"/Filmreplies/list/"+bno+".json",
 				function(data){
 					if(callback)
 						callback(data);
@@ -41,7 +41,7 @@ var replyService = (function(){ // replyService 함수선언
 	function reDetail(rno, callback){
 		var rno = rno;
 		$.getJSON(
-				"/replies/"+rno+".json",
+				"/Filmreplies/"+rno+".json",
 				function(data){
 					if(callback)
 						callback(data);
@@ -52,7 +52,7 @@ var replyService = (function(){ // replyService 함수선언
 	function reUpdate(reply, callback){
 		console.log(reply);
 		$.ajax({
-			url : "/replies/update",
+			url : "/Filmreplies/update",
 			type : "put",
 			data : JSON.stringify(reply), 
 			contentType:"application/json;charset=utf-8",
@@ -73,7 +73,7 @@ var replyService = (function(){ // replyService 함수선언
 	function remove(reply, callback){
 		console.log(reply);
 		$.ajax({
-			url : "/replies/remove",
+			url : "/Filmreplies/remove",
 			type : "delete",
 			data : JSON.stringify(reply), 
 			contentType:"application/json;charset=utf-8",
@@ -105,35 +105,40 @@ var replyService = (function(){ // replyService 함수선언
 
 
 
+
+
+
+
+
 $(document).ready(function(){
 	// bno값
 	var bno=$("#bno").html();
-	
-	// 상세페이지가 시작되자마자 이미지를 출력하기 위한 ajax
-	$.getJSON("/board/fileList/"+bno+".json",
-			function(data){ // BiardController에 있는 fielList를 통해 얻어진 select결과를 저장한 후,
-		// detail.jsp에 뿌리기
-		console.log(data)
-		var str = "";
-		$(data).each(function(i, obj){
-			if(!obj.image) { // 사용자가 업로드한 파일의 타입이 이미지가 아니면(excel 문서 파일, ppt파일),
-				var fileCallPath = encodeURIComponent(obj.uploadPath + "/" + obj.uuid + "_" + obj.fileName)
-				str += "<li data-path='" + obj.uploadPath + "'";
-				str += "data-uuid='" + obj.uuid + "'data-filename = '" + obj.fileName + "'data-type='" + obj.image + "'>";
-				str += "<a href = '/download?fileName=" + fileCallPath + "'>" + obj.fileName + "</a></li>"
-			} else { // 사용자가 업르도한 파일의 타입이 이미지이면(.jpg, .png, .gif),
-				var fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName)
-				// console.log(fileCallPath);
-				// img 태그를 사용해서 웹브라우저 이미지 출력
-				str += "<li data-path='" + obj.uploadPath + "'";
-				str += "data-uuid='" + obj.uuid + "'data-filename = '" + obj.fileName + "'data-type='" + obj.image + "'>";
-				str += "<img src = '/display?fileName=" + fileCallPath + "'></li>"
-			}
-			
-		})
-		$("#uploadResult ul").html(str)
-		
-	})
+//	
+//	// 상세페이지가 시작되자마자 이미지를 출력하기 위한 ajax
+//	$.getJSON("/board/fileList/"+bno+".json",
+//			function(data){ // BiardController에 있는 fielList를 통해 얻어진 select결과를 저장한 후,
+//		// detail.jsp에 뿌리기
+//		console.log(data)
+//		var str = "";
+//		$(data).each(function(i, obj){
+//			if(!obj.image) { // 사용자가 업로드한 파일의 타입이 이미지가 아니면(excel 문서 파일, ppt파일),
+//				var fileCallPath = encodeURIComponent(obj.uploadPath + "/" + obj.uuid + "_" + obj.fileName)
+//				str += "<li data-path='" + obj.uploadPath + "'";
+//				str += "data-uuid='" + obj.uuid + "'data-filename = '" + obj.fileName + "'data-type='" + obj.image + "'>";
+//				str += "<a href = '/download?fileName=" + fileCallPath + "'>" + obj.fileName + "</a></li>"
+//			} else { // 사용자가 업르도한 파일의 타입이 이미지이면(.jpg, .png, .gif),
+//				var fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName)
+//				// console.log(fileCallPath);
+//				// img 태그를 사용해서 웹브라우저 이미지 출력
+//				str += "<li data-path='" + obj.uploadPath + "'";
+//				str += "data-uuid='" + obj.uuid + "'data-filename = '" + obj.fileName + "'data-type='" + obj.image + "'>";
+//				str += "<img src = '/display?fileName=" + fileCallPath + "'></li>"
+//			}
+//			
+//		})
+//		$("#uploadResult ul").html(str)
+//		
+//	})
 	
 	
 	
@@ -157,18 +162,14 @@ $(document).ready(function(){
 	
 	//댓글쓰기 버튼을 클릭하면
 	$("#addReplyBtn").on("click",function(e){
+		
+		// bno값을 가져와라.
+		var bno=$("#bno").val();
+		$("input[name='bno']").val(bno);
 		// 댓글 글수정 버튼 비활성화
 		$("#modalModBtn").hide();
 		// 댓글 글삭제 버튼 비활성화
 		$("#modalRemoveBtn").hide();
-		// 댓글 글쓰기 버튼 활성화
-		$("#modalRegisterBtn").show();
-		// rno값 비워라
-		$("input[name='rno']").val("")
-		// reply값 비워라
-		
-		// replyer값 비워라
-		
 		// 모달창을 띄워라
 		$(".modal fade").modal("show");
 	});
@@ -178,7 +179,7 @@ $(document).ready(function(){
 	
 	function showList(){
 
-		replyService.getList({bno:bno},function(list){
+		FilmreplyService.getList({bno:bno},function(list){
 			
 			console.log(list);
 			var str="";
@@ -195,7 +196,7 @@ $(document).ready(function(){
 		}); // 소스를 간결하게 가져갈 수 있고, 유지보수를 쉽게 할 수 있음
 	}
 	
-	// console.log(replyService); // replyService함수 호출
+	// console.log(FilmreplyService); // FilmreplyService함수 호출
 	// 댓글쓰기 버튼(id가 값이 modalRegisterBtn)을 클릭하면
 	$("#modalRegisterBtn").on("click", function(){
 		// 사용자가 입력한 댓글내용을 저장
@@ -203,7 +204,7 @@ $(document).ready(function(){
 		// 사용자가 입력한 댓글작성자를 저장
 		var replyer = $("input[name='replyer']").val()
 		//              ajax보내고자하는 json타입                                 , callback
-		replyService.add({reply:reply, replyer:replyer,bno:bno}, 
+		FilmreplyService.add({reply:reply, replyer:replyer,bno:bno}, 
 				function(result){ // callback함수호출
 					alert("insert 작업 : "+result)
 					// 목록리스트를 처리
@@ -219,7 +220,7 @@ $(document).ready(function(){
 		// rno값을 가져오기
 		var rno = $(this).data("rno");
 		
-		replyService.reDetail(rno,function(detail){
+		FilmreplyService.reDetail(rno,function(detail){
 			console.log(detail)
 			
 			$("input[name='rno']").val(detail.rno)
@@ -244,7 +245,7 @@ $(document).ready(function(){
 		var reply = {rno:$("input[name='rno']").val(),reply:$("input[name='reply']").val()}
 		console.log(reply);
 		// 댓글 수정 함수를 호출해서 처리
-		replyService.reUpdate(reply,function(update){
+		FilmreplyService.reUpdate(reply,function(update){
 			// 콜백영역(update가 정상적으로 처리된 후 조치)
 			alert("update 작업 : "+update)
 			// 모달창 닫고
@@ -263,7 +264,7 @@ $(document).ready(function(){
 	$("#modalRemoveBtn").on("click",function(){
 		// alert("aa")
 		var reply = {rno:$("input[name='rno']").val()}
-		replyService.remove(reply,function(remove){
+		FilmreplyService.remove(reply,function(remove){
 			// 클릭영역 ( delete가 정상적으로 처리된 후 조치 )
 			alert("delete 작업 : "+remove)
 			// 모달창 닫고

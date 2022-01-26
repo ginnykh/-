@@ -29,8 +29,8 @@
 
                 <div class="member">
                     <ul>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Register</a></li>
+                        <li><a href=/filmlog/login">Login</a></li>
+                        <li><a href="/filmlog/memberindex">Register</a></li>
                         <li class="sc"><a href="#">검색하기</a></li>
                     </ul>
                 </div>

@@ -2,9 +2,13 @@ package org.khj.service;
 
 import java.util.ArrayList;
 
+import org.khj.domain.AttachFileDTO;
 import org.khj.domain.BoardDTO;
+import org.khj.domain.FilmAttachFileDTO;
 import org.khj.domain.FilmDTO;
 import org.khj.domain.filmCriteria;
+import org.khj.mapper.AttachMapper;
+import org.khj.mapper.FilmAttachMapper;
 import org.khj.mapper.filmlogMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +19,19 @@ public class filmlogServicelmpl implements filmlogService{
 
 	@Autowired
 	private org.khj.mapper.filmlogMapper fmapper;
+	@Autowired
+	private FilmAttachMapper famapper;
 	
 	@Transactional
 	// 게시판 글쓰기 설계된것을 구현
 	public void write(FilmDTO film) {
-		fmapper.write(film);
+		 fmapper.write(film);
+		// 제목과 내용을 board테이블에 insert
+		 fmapper.insertSelectKey(film);
+		 film.getAttachList().forEach(attach->{
+				attach.setBno(film.getBno());
+				famapper.finsert(attach);
+			});
 	}
 	
 	// 게시판 목록리스트 설계된것을 구현
@@ -49,6 +61,11 @@ public class filmlogServicelmpl implements filmlogService{
 	// 게시판 글삭제 설계된것을 구현
 	public void remove(FilmDTO film) {
 		fmapper.remove(film);
+	}
+	
+	
+	public ArrayList<FilmAttachFileDTO> fileList(int bno){
+		return famapper.fileList(bno);
 	}
 	
 }

@@ -27,6 +27,9 @@
               <form action="/filmlog/modify" method="post" id="target">
                 <legend>글 수정하기</legend>
                   <table>
+                  	<tr>
+                  		<td><input type="hidden" value="${detail.bno}" name="bno" readonly></td>
+                  	</tr>
                     <tr>
                       <td><input type="text" placeholder="title" class="title" id="tCount" name = "title" value="${detail.title}"></td>
                     </tr>

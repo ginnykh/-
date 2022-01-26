@@ -19,4 +19,5 @@ public interface filmlogMapper {
 	public void modify(FilmDTO film);
 	// 게시판 글삭제와 관련이 되어 있는 DB작업에 설계
 	public void remove(FilmDTO film);
+	public void insertSelectKey(FilmDTO film);
 }

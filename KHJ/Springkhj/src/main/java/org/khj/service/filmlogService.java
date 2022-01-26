@@ -2,7 +2,7 @@ package org.khj.service;
 
 import java.util.ArrayList;
 
-import org.khj.domain.BoardDTO;
+import org.khj.domain.FilmAttachFileDTO;
 import org.khj.domain.FilmDTO;
 import org.khj.domain.filmCriteria;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +21,7 @@ public interface filmlogService {
 	public void modify(FilmDTO film);
 	// 게시판 삭제페이지
 	public void remove(FilmDTO film);
-
+	// 게시판 상세페이지에 파일업로드된 이미지 출력
+	public ArrayList<FilmAttachFileDTO> fileList(int bno);
 		
 }

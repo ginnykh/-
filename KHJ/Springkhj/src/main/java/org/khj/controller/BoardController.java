@@ -41,7 +41,7 @@ public class BoardController {
 	// 게시판 목록 리스트
 	@GetMapping("list")
 	public void list(Criteria cri, Model model) { // pageNum이랑 amount가 Criteria에 저장
-		System.out.println("board/list");
+//		System.out.println("board/list");
 		model.addAttribute("list", service.list(cri));	
 		int total = service.getTotalCount(cri); // 바로 넣어도 상관없음
 		model.addAttribute("pageMaker",new PageDTO(cri, total));
@@ -65,7 +65,7 @@ public class BoardController {
 	@GetMapping("modify")
 	public void modify(BoardDTO board,Model model) {
 		model.addAttribute("detail",service.detail(board));
-		System.out.println("board/modify");
+//		System.out.println("board/modify");
 	}
 	// 글수정 버튼을 클릭하면.....
 	@PostMapping("modify")

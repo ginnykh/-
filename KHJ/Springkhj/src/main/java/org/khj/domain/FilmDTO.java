@@ -1,5 +1,6 @@
 package org.khj.domain;
 
+import java.util.ArrayList;
 
 public class FilmDTO {
 
@@ -10,6 +11,8 @@ public class FilmDTO {
 	private String regdate;
 	private int cnt;
 	private int good;
+	
+	private ArrayList<FilmAttachFileDTO> attachList;
 
 	public int getBno() {
 		return bno;
@@ -66,12 +69,18 @@ public class FilmDTO {
 	public void setGood(int good) {
 		this.good = good;
 	}
+	
+	public ArrayList<FilmAttachFileDTO> getAttachList() {
+		return attachList;
+	}
+	public void setAttachList(ArrayList<FilmAttachFileDTO> attachList) {
+		this.attachList = attachList;
+	}
 
 	@Override
 	public String toString() {
 		return "FilmDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
 				+ regdate + ", cnt=" + cnt + ", good=" + good + "]";
 	}
-	
 	
 }
