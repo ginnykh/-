@@ -85,14 +85,14 @@
             
             
             <div class="panel-body">
-<!-- Button trigger modal -->
-			<button id = "addReplyBtn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-				댓글
-			</button>
-			
-			<div>
-				<ul id = "relist"></ul>
-			</div>              
+			<!-- Button trigger modal -->
+				<button id = "addReplyBtn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+					댓글
+				</button>
+				
+				<div>
+					<ul id = "relist"></ul>
+				</div>              
 			</div>
             
             
@@ -106,7 +106,7 @@
                                             <div>
                                             <label>Rno</label>
                                             <input type = "text" name = "rno">
-                                            <input type = "text" name = "bno">
+                                            <input type = "hidden" name = "bno">
                                             </div>
                                             <div>
                                             <label>Replyer</label>

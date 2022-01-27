@@ -47,9 +47,9 @@
 		<div>
 			<input type = "file" name = "uploadFile" multiple>
 		</div>
-		
+		<!-- class="btn btn-primary btn-icon-split" -->
 		<div class="btn btn-primary btn-icon-split">
-			<input type="submit" value="글쓰기" class="btn btn-primary btn-icon-split">
+			<input type="submit" value="글쓰기"  class="btn btn-primary btn-icon-split">
 		</div>
 		
 	</div>

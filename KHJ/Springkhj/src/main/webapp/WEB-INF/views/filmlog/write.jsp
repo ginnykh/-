@@ -26,7 +26,7 @@
               </div>
             </section>
             <div class="write">
-              <form action="/filmlog/write" method="post" id="target">
+              <form action="/filmlog/write" method="post" id="target" role = "form">
                 <legend>글쓰기</legend>
                   <table>
                     <tr>
@@ -39,7 +39,23 @@
                   <p class="countTitle"><span id="countTi"></span>/100</p>
                   <p class="countText"><span id="countT"></span>/2000</p>
                   <!-- <input type="submit" value="등록" class="sub"> -->
+              
+              
+              
+	                <div>
+						<input type = "file" name = "uploadFile" multiple>
+					</div>
+					 
+		
+					<div>
+						<input type="submit" value="등록" class="sub">
+					</div>
+            		
+              
               </form>
+              <div id = "uploadResult">
+				<ul></ul>
+			  </div>
             </div>  
           </div><!--containerIn-->
           
@@ -49,13 +65,7 @@
           
           
           
-          <div>
-			<input type = "file" name = "uploadFile" multiple>
-		</div>
-		
-		<div class="btn btn-primary btn-icon-split">
-			<input type="submit" value="등록" class="sub">
-		</div>
+          
           
           
           

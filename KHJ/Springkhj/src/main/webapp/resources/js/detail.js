@@ -111,7 +111,7 @@ $(document).ready(function(){
 	
 	// 상세페이지가 시작되자마자 이미지를 출력하기 위한 ajax
 	$.getJSON("/board/fileList/"+bno+".json",
-			function(data){ // BiardController에 있는 fielList를 통해 얻어진 select결과를 저장한 후,
+			function(data){ // BoardController에 있는 fielList를 통해 얻어진 select결과를 저장한 후,
 		// detail.jsp에 뿌리기
 		console.log(data)
 		var str = "";
@@ -166,9 +166,9 @@ $(document).ready(function(){
 		// rno값 비워라
 		$("input[name='rno']").val("")
 		// reply값 비워라
-		
+		$("input[name='reply']").val("")
 		// replyer값 비워라
-		
+		$("input[name='replyer']").val("")
 		// 모달창을 띄워라
 		$(".modal fade").modal("show");
 	});

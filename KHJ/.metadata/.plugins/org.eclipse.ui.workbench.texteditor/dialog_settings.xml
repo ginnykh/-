@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="insert" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="삭제"/>
-			<item value="detail"/>
-			<item value="detail\"/>
-			<item value="boardIndex"/>
-			<item value="write"/>
-			<item value="cri"/>
-			<item value="cntupdate"/>
-			<item value="#0d6efd"/>
-			<item value="modify"/>
-			<item value="modigy"/>
-			<item value="board/"/>
-			<item value="bpard/"/>
-			<item value="board"/>
-			<item value="board/detail"/>
-			<item value="#list"/>
+			<item value="insert"/>
+			<item value="finsert"/>
+			<item value="fileList"/>
+			<item value="btn btn-primary"/>
+			<item value="btn btn-primary btn-icon-split"/>
+			<item value="reDetail"/>
+			<item value="getList"/>
+			<item value="FilmreplyService"/>
+			<item value="FilmReplyService"/>
+			<item value="list"/>
+			<item value="relist"/>
+			<item value="click"/>
+			<item value="ReplyDTO = "/>
+			<item value="addReplyBtn"/>
+			<item value="bno"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -31,7 +31,7 @@
 		<item value="288" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="1606" key="DIALOG_X_ORIGIN"/>
-		<item value="489" key="DIALOG_Y_ORIGIN"/>
+		<item value="1262" key="DIALOG_X_ORIGIN"/>
+		<item value="371" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
