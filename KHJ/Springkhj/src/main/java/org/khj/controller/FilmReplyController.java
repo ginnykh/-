@@ -28,7 +28,6 @@ public class FilmReplyController {
 		// insert 성공시 ReplyMapper.xml로 부터 1
 		// insert 실패시 ReplyMapper.xml로 부터 0
 		int result = frservice.write(frdto); 
-		System.out.println(frdto.getBno());
 		return result == 1?new ResponseEntity<>("success",HttpStatus.OK) // insert가 정상적으로 처리되었을 때, 
 				:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); // insert가 비정상적으로 처리되었을 때,
 	}

@@ -5,11 +5,10 @@
 var FilmReplyService = (function(){ // FilmreplyService 함수선언
 	// 댓글쓰기(add)를 하기 위한 함수 선언
 	function add(reply, callback){
-		console.log(reply)
 		$.ajax({
 			url : "/Filmreplies/new",
 			type : "post",
-			data : JSON.stringify(reply), // JSON.stringify : 자바스크립트의 값을 JSON 문자열로 변환
+			data : JSON.stringify(reply), 
 			contentType:"application/json;charset=utf-8",
 			success:function(result){ // 통신이 정상적으로 성공했으면 
 				// callback함수 선언
@@ -112,7 +111,7 @@ var FilmReplyService = (function(){ // FilmreplyService 함수선언
 
 $(document).ready(function(){
 	// bno값
-	var bno=$("#bno").html();
+	var bno=$("#bno").val();
 	
 	// 상세페이지가 시작되자마자 이미지를 출력하기 위한 ajax
 	$.getJSON("/filmlog/fileList/"+bno+".json",
@@ -172,6 +171,8 @@ $(document).ready(function(){
 		$("input[name='reply']").val("")
 		// replyer값 비워라
 		$("input[name='replyer']").val("")
+		// 댓글 글쓰기 버튼 활성화
+		$("#modalRegisterBtn").show();
 		// 댓글 글수정 버튼 비활성화
 		$("#modalModBtn").hide();
 		// 댓글 글삭제 버튼 비활성화
@@ -202,12 +203,14 @@ $(document).ready(function(){
 		}); // 소스를 간결하게 가져갈 수 있고, 유지보수를 쉽게 할 수 있음
 	}
 	
-	// console.log(FilmreplyService); // FilmreplyService함수 호출
+ 
 	// 댓글쓰기 버튼(id가 값이 modalRegisterBtn)을 클릭하면
 	$("#modalRegisterBtn").on("click", function(){
 		// bno값 가져오기
 		var bno=$("#bno").val();
-		// 사용자가 입력한 댓글내용을 저장
+		// rno를 저장
+//		var rno = $("input[name='rno']").val()
+//		// 사용자가 입력한 댓글내용을 저장
 		var reply = $("input[name='reply']").val()
 		// 사용자가 입력한 댓글작성자를 저장
 		var replyer = $("input[name='replyer']").val()

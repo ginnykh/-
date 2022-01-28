@@ -34,7 +34,6 @@ public class ReplyController {
 		// insert 실패시 ReplyMapper.xml로 부터 0
 		// 값을 리턴받는다.
 		int result = rservice.write(rdto); 
-		                  
 		return result == 1?new ResponseEntity<>("success",HttpStatus.OK) // insert가 정상적으로 처리되었을 때, 
 				:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); // insert가 비정상적으로 처리되었을 때,
 	}

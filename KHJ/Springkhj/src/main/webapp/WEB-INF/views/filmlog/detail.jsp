@@ -56,6 +56,11 @@
                             </td>
                         </tr>
                     </table>
+                    
+                    <div id = "uploadResult" class="col-sm-12 mb-3 mb-sm-0">
+						<ul></ul>
+					</div>
+					
                     <div class="btn">
                         <div class="btn_r"><a href="/filmlog/write">글쓰기</a></div>
                         <div class="btn_l"><a href="/filmlog/boardlist">목록보기</a></div>
@@ -79,7 +84,9 @@
                 </div>
             </div><!--containerIn-->
             
-            
+            <div id = "uploadResult" class="col-sm-12 mb-3 mb-sm-0">
+				<ul></ul>
+			</div>
             
             
             

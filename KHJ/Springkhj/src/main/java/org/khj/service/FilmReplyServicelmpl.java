@@ -12,7 +12,6 @@ public class FilmReplyServicelmpl implements FilmReplyService{
 	private FilmReplyMapper frmapper;
 	// 게시판 글쓰기 설계된것을 구현
 	public int write(FilmReplyDTO frdto) {
-		System.out.println("FilmReplyServiceImpl="+frdto);
 		// insert 성공시 ReplyMapper.xml로 부터 1
 		// insert 실패시 ReplyMapper.xml로 부터 0
 		// 값을 리턴받는다.
